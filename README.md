@@ -1,11 +1,14 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
 <h3 align="center">PHOTO VIEWER</h3>
-<p align="center"><strong><code>@capacitor-community/photoviewer</code></strong></p>
+<p align="center"><strong><code>@flarehealth/capacitor-photoviewer</code></strong></p>
 <br>
-<p align="center" style="font-size:50px;color:red"><strong>Capacitor 5</strong></p>
+<p align="center" style="font-size:50px;color:red"><strong>Capacitor 6 (experimental)</strong></p>
+<p align="center" style="font-size:50px;color:red"><strong>Disclaimer</strong></p>
+<p>Like many others waiting for the upstream repo to upgrade to Capacitor 6, we need this plugin for one of our apps. We are just applying the necessary changes to make it work with Capacitor 6 (see this https://github.com/capacitor-community/photoviewer/issues/56#issuecomment-1936686909). As soon as the original plugin supports Capacitor 6, this repository will be dropped.
+</p>
 <br>
 <!-- Note from the Owner - Start -->
-<p align="center" style="font-size:50px;color:red"><strong>Note from the Owner</strong></p>
+<p align="center" style="font-size:50px;color:red"><strong>Note from the Upstream Owner</strong></p>
 <!-- Note from the Owner - End -->
 <br>
 <!-- Message below Note from the Owner - Start -->
@@ -75,7 +78,7 @@ On iOS plugin, the creation of a movie from the pictures stored in the <strong>A
 | ----------------- | ----------------------------------------- | ------ |
 | Quéau Jean Pierre | [jepiqueau](https://github.com/jepiqueau) |        |
 
-## CAPACITOR 5 (Master)
+## CAPACITOR 6 (Master)
 
 For more info on releases:
 
@@ -98,8 +101,8 @@ meaning that it will not work in IE11 without additional JavaScript transformati
 ## Installation
 
 ```bash
-npm install @capacitor-community/photoviewer
-npx cap sync
+yarn add git+https://github.com/flarehealth/capacitor-photoviewer.git
+yarn run cap sync
 ```
 
 Since version 3.0.4, modify the `capacitor.config.ts` to add the image location to save the image downloaded from an HTTP request to the internal disk.
@@ -137,10 +140,10 @@ export default config;
 ```js
 ...
 buildscript {
-    ext.kotlin_version = '1.8.20'
+    ext.kotlin_version = '1.9.10'
     dependencies {
         ...
-        classpath 'com.android.tools.build:gradle:8.0.0'
+        classpath 'com.android.tools.build:gradle:8.2.1'
         classpath 'com.google.gms:google-services:4.3.15'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }

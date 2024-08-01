@@ -15,13 +15,14 @@ internal open class OnSwipeTouchListener (c: Context?) :
   private inner class GestureListener: GestureDetector.SimpleOnGestureListener() {
     private val SWIPE_THRESHOLD: Int = 100
     private val SWIPE_VELOCITY_THRESHOLD: Int = 200
+    @Suppress("NOTHING_TO_OVERRIDE", "ACCIDENTAL_OVERRIDE")
     override fun onFling(
-      downEvent: MotionEvent,
+      downEvent: MotionEvent?,
       moveEvent: MotionEvent,
       velocityX: Float,
       velocityY: Float
     ): Boolean {
-      var diffX = moveEvent.x.minus(downEvent.x)
+      var diffX = moveEvent.x.minus(downEvent!!.x)
       var diffY = moveEvent.y.minus(downEvent.y)
 
       return if(Math.abs(diffX) > Math.abs(diffY)) {
