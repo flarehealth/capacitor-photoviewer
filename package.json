@@ -1,5 +1,5 @@
 {
-  "name": "@capacitor-community/photoviewer",
+  "name": "capacitor-photoviewer",
   "version": "3.2.0",
   "description": "PhotoViewer table images with fullscreen and sharing capabilities",
   "main": "dist/plugin.cjs.js",
