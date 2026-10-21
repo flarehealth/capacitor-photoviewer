@@ -2,7 +2,7 @@ var capacitorPhotoViewer = (function (exports, core, loader) {
     'use strict';
 
     const PhotoViewer = core.registerPlugin('PhotoViewer', {
-        web: () => Promise.resolve().then(function () { return web; }).then(m => new m.PhotoViewerWeb()),
+        web: () => Promise.resolve().then(function () { return web; }).then((m) => new m.PhotoViewerWeb()),
     });
 
     class PhotoViewerWeb extends core.WebPlugin {
@@ -94,8 +94,6 @@ var capacitorPhotoViewer = (function (exports, core, loader) {
     });
 
     exports.PhotoViewer = PhotoViewer;
-
-    Object.defineProperty(exports, '__esModule', { value: true });
 
     return exports;
 

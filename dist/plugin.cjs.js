@@ -1,12 +1,10 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var core = require('@capacitor/core');
 var loader = require('jeep-photoviewer/loader');
 
 const PhotoViewer = core.registerPlugin('PhotoViewer', {
-    web: () => Promise.resolve().then(function () { return web; }).then(m => new m.PhotoViewerWeb()),
+    web: () => Promise.resolve().then(function () { return web; }).then((m) => new m.PhotoViewerWeb()),
 });
 
 class PhotoViewerWeb extends core.WebPlugin {
