@@ -30,6 +30,7 @@ import com.getcapacitor.community.media.photoviewer.helper.BackgroundColor
 import com.getcapacitor.community.media.photoviewer.helper.GlideApp
 import com.getcapacitor.community.media.photoviewer.helper.ImageToBeLoaded
 import com.getcapacitor.community.media.photoviewer.helper.ShareImage
+import com.getcapacitor.community.media.photoviewer.helper.applySystemBarInsets
 import com.getcapacitor.community.media.photoviewer.listeners.OnSwipeTouchListener
 import com.ortiz.touchview.TouchImageView
 import java.io.File
@@ -136,6 +137,7 @@ class ImageFragment : Fragment() {
             Log.d(TAG, "orientation Landscape")
         }
         rlLayout = binding.rlTouchImage
+        applySystemBarInsets(binding.menuBtns)
 
         val mBackgroundColor = BackgroundColor()
         rlLayout.setBackgroundResource(mBackgroundColor.setBackColor(backgroundColor))

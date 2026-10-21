@@ -1,6 +1,7 @@
 package com.getcapacitor.community.media.photoviewer;
 
 import android.Manifest;
+import android.net.Uri;
 import android.os.Build;
 import androidx.appcompat.app.AppCompatActivity;
 import com.getcapacitor.JSArray;
@@ -14,6 +15,10 @@ import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 import com.getcapacitor.community.media.photoviewer.Notifications.MyRunnable;
 import com.getcapacitor.community.media.photoviewer.Notifications.NotificationCenter;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,6 +62,35 @@ public class PhotoViewerPlugin extends Plugin {
                 call.reject(PERMISSION_DENIED_ERROR);
             }
         }
+    }
+
+    // Files in the app's own internal or external storage can be read without any media permission
+    private boolean isAppOwnedFile(String url) {
+        String path;
+        int capacitorFileIndex = url.indexOf("_capacitor_file_");
+        if (capacitorFileIndex >= 0) {
+            path = url.substring(capacitorFileIndex + "_capacitor_file_".length());
+        } else {
+            path = Uri.parse(url).getPath();
+        }
+        if (path == null) return false;
+
+        try {
+            String filePath = new File(path).getCanonicalPath();
+            List<File> appDirs = new ArrayList<>();
+            appDirs.add(getContext().getDataDir());
+            File externalFilesDir = getContext().getExternalFilesDir(null);
+            if (externalFilesDir != null && externalFilesDir.getParentFile() != null) {
+                appDirs.add(externalFilesDir.getParentFile());
+            }
+            for (File dir : appDirs) {
+                String dirPath = dir.getCanonicalPath() + File.separator;
+                if (filePath.startsWith(dirPath)) return true;
+            }
+        } catch (IOException e) {
+            return false;
+        }
+        return false;
     }
 
     private boolean isImagesPermissions() {
@@ -108,7 +142,7 @@ public class PhotoViewerPlugin extends Plugin {
             try {
                 JSONObject obj = images.getJSONObject(i);
                 String url = obj.getString("url");
-                if (url.startsWith("file:") || url.contains("_capacitor_file_")) {
+                if ((url.startsWith("file:") || url.contains("_capacitor_file_")) && !isAppOwnedFile(url)) {
                     isRequired = true;
                     break;
                 }
