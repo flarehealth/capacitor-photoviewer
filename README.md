@@ -1,34 +1,6 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
 <h3 align="center">PHOTO VIEWER</h3>
-<p align="center"><strong><code>@flarehealth/capacitor-photoviewer</code></strong></p>
-<br>
-<p align="center" style="font-size:50px;color:red"><strong>Capacitor 6 (experimental)</strong></p>
-<p align="center" style="font-size:50px;color:red"><strong>Disclaimer</strong></p>
-<p>Like many others waiting for the upstream repo to upgrade to Capacitor 6, we need this plugin for one of our apps. We are just applying the necessary changes to make it work with Capacitor 6 (see this https://github.com/capacitor-community/photoviewer/issues/56#issuecomment-1936686909). As soon as the original plugin supports Capacitor 6, this repository will be dropped.
-</p>
-<br>
-<!-- Note from the Owner - Start -->
-<p align="center" style="font-size:50px;color:red"><strong>Note from the Upstream Owner</strong></p>
-<!-- Note from the Owner - End -->
-<br>
-<!-- Message below Note from the Owner - Start -->
-<p align="left" style="font-size:47px">Start --></p>
-<br>
-<p align="left">
-I have been dedicated to developing and maintaining this plugin for many years since the inception of Ionic Capacitor. Now, at 73+ years old, and with my MacBook Pro becoming obsolete for running Capacitor 6 for iOS, I have made the decision to cease maintenance of the plugin. If anyone wishes to take ownership of this plugin, they are welcome to do so.
-</p>
-<br>
-<p align="left">
-It has been a great honor to be part of this development journey alongside the developer community. I am grateful to see many of you following me on this path and incorporating the plugin into your applications. Your comments and suggestions have motivated me to continuously improve it.
-</p>
-<br>
-<p align="left">
-I have made this decision due to several family-related troubles that require my full attention and time. Therefore, I will not be stepping back. Thank you to all of you for your support.
-</p>
-<br>
-<p align="left" style="font-size:47px">End <--</p>
-<!-- Message below Note from the Owner - End -->
-<br>
+<p align="center"><strong><code>@capacitor-community/photoviewer</code></strong></p>
 <br>
 <p align="left">
 Capacitor community plugin for Web and Native Photo Viewer allowing to open fullscreen </p>
@@ -61,7 +33,7 @@ On iOS plugin, the creation of a movie from the pictures stored in the <strong>A
 
 <br>
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2023?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" />
   <a href="https://www.npmjs.com/package/@capacitor-community/photoviewer"><img src="https://img.shields.io/npm/l/@capacitor-community/photoviewer?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capacitor-community/photoviewer"><img src="https://img.shields.io/npm/dw/@capacitor-community/photoviewer?style=flat-square" /></a>
@@ -74,21 +46,9 @@ On iOS plugin, the creation of a movie from the pictures stored in the <strong>A
 
 ## Maintainers
 
-| Maintainer        | GitHub                                    | Social |
-| ----------------- | ----------------------------------------- | ------ |
-| Quéau Jean Pierre | [jepiqueau](https://github.com/jepiqueau) |        |
-
-## CAPACITOR 6 (Master)
-
-For more info on releases:
-
- - [info_releases](https://github.com/capacitor-community/photoviewer/blob/master/info_releases.md)
-
- - [changelog](https://github.com/capacitor-community/photoviewer/blob/main/CHANGELOG.md)
-
- - [issues](https://github.com/capacitor-community/photoviewer/issues)
-
-
+| Maintainer | GitHub                                    | Social                                        |
+| ---------- | ----------------------------------------- | --------------------------------------------- |
+| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
 
 ## Browser Support
 
@@ -101,8 +61,8 @@ meaning that it will not work in IE11 without additional JavaScript transformati
 ## Installation
 
 ```bash
-yarn add git+https://github.com/flarehealth/capacitor-photoviewer.git
-yarn run cap sync
+npm install @capacitor-community/photoviewer
+npx cap sync
 ```
 
 Since version 3.0.4, modify the `capacitor.config.ts` to add the image location to save the image downloaded from an HTTP request to the internal disk.
@@ -140,11 +100,11 @@ export default config;
 ```js
 ...
 buildscript {
-    ext.kotlin_version = '1.9.10'
+    ext.kotlin_version = '1.9.25'
     dependencies {
         ...
-        classpath 'com.android.tools.build:gradle:8.2.1'
-        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'com.android.tools.build:gradle:8.8.1'
+        classpath 'com.google.gms:google-services:4.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -172,7 +132,7 @@ buildscript {
         ```
     - in the `dependencies` block add
         ```
-        implementation "androidx.core:core-ktx:1.10.0"
+        implementation "androidx.core:core-ktx:1.15.0"
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
         ```
 
@@ -203,12 +163,12 @@ npm run serve          // Web
 
 ## Supported methods
 
-| Name                        | Android | iOS | Electron | Web |
-| :-------------------------- | :------ | :-- | :------- | :-- |
-| echo                        |   ✅    |  ✅  |    ❌    |  ✅ |
-| show                        |   ✅    |  ✅  |    ❌    |  ✅ |
-| saveImageFromHttpToInternal |   ❌    |  ✅  |    ❌    |  ❌ |
-| getInternalImagePaths       |   ❌    |  ✅  |    ❌    |  ❌ |
+| Name                        | Android | iOS  | Electron | Web  |
+| :-------------------------- | :------ | :--- | :------- | :--- |
+| echo                        | ✅       | ✅    | ❌        | ✅    |
+| show                        | ✅       | ✅    | ❌        | ✅    |
+| saveImageFromHttpToInternal | ❌       | ✅    | ❌        | ❌    |
+| getInternalImagePaths       | ❌       | ✅    | ❌        | ❌    |
 
 
 ## Documentation

@@ -1,5 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
-import type { PhotoViewerPlugin, capEchoOptions, capEchoResult, capShowOptions, capShowResult, capHttpOptions, capHttpResult, capPaths } from './definitions';
+import type { capEchoOptions, capEchoResult, capHttpOptions, capHttpResult, capPaths, capShowOptions, capShowResult, PhotoViewerPlugin } from './definitions';
 export declare class PhotoViewerWeb extends WebPlugin implements PhotoViewerPlugin {
     private _imageList;
     private _options;
