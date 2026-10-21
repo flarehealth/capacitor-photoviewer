@@ -119,6 +119,7 @@ class ScreenSlidePageFragment() : Fragment(), CallbackListener {
         rlFullscreen.setBackgroundResource(backColor)
 
         rlMenu = binding.menuBtns
+        applySystemBarInsets(rlMenu)
         tvGalleryTitle = binding.tvGalleryTitle
         ivFullscreenImage = binding.ivFullscreenImage
         ivFullscreenImage.setBackgroundResource(backColor)
